@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HiBars3BottomRight,
   HiOutlineShoppingBag,
@@ -8,10 +8,15 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import CartDrawer from "../Layout/CartDrawer";
 const Navbar = () => {
+  const [drawerOpen, setdrawerOpen] = useState(false);
+
+  const togglecartdrawer = () => {
+    setdrawerOpen(!drawerOpen);
+  };
   return (
     <>
       <nav className="container mx-auto flex items-center justify-between py-4 px-6">
-        <div>
+        <div className="smooth-click-animation">
           <Link to="/" className="text-2xl font-medium">
             Rabbit
           </Link>
@@ -20,34 +25,37 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-6">
           <Link
             to="#"
-            className="font-medium text-gray-700 hover:text-black uppercase text-sm"
+            className="font-medium text-gray-700 hover:text-black uppercase text-sm smooth-click-animation"
           >
             Men
           </Link>
           <Link
             to="#"
-            className="font-medium text-gray-700 hover:text-black uppercase text-sm"
+            className="font-medium text-gray-700 hover:text-black uppercase text-sm smooth-click-animation"
           >
             Women
           </Link>
           <Link
             to="#"
-            className="font-medium text-gray-700 hover:text-black uppercase text-sm"
+            className="font-medium text-gray-700 hover:text-black uppercase text-sm smooth-click-animation"
           >
             Top wear
           </Link>
           <Link
             to="#"
-            className="font-medium text-gray-700 hover:text-black uppercase text-sm"
+            className="font-medium text-gray-700 hover:text-black uppercase text-sm smooth-click-animation"
           >
             Bottom wear
           </Link>
         </div>
-        <div className="flex items-center justify-center space-x-3.5">
+        <div className="flex items-center justify-center space-x-3.5 ">
           <Link to="#">
             <HiOutlineUser className="h-6 w-6 text-gray-700 hover:text-black" />
           </Link>
-          <button className="relative hover:text-black">
+          <button
+            className="relative hover:text-black active:scale-95 cursor-pointer"
+            onClick={togglecartdrawer}
+          >
             <HiOutlineShoppingBag className="h-6 w-6 text-gray-700 hover:text-black" />
             <span className="px-2 py-0.5 bg-rabbit-red rounded-2xl text-white text-xs absolute -top-1">
               4
@@ -59,7 +67,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      <CartDrawer />
+      <CartDrawer drawerOpen={drawerOpen} togglecartdrawer={togglecartdrawer} />
     </>
   );
 };

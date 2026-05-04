@@ -12,3 +12,8 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+
+.smooth-click-animation {
+  @apply hover:text-black active:scale-95 transition-transform duration-150
+}
