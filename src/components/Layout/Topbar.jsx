@@ -2,7 +2,6 @@ import { FaMeta } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 
-
 export const Topbar = () => {
   return (
     <div className="bg-rabbit-red text-white">
