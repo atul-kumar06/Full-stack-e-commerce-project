@@ -1,13 +1,17 @@
 import React from "react";
 import { Topbar } from "../Layout/Topbar";
+import Navbar from "./Navbar";
 
 const Header = () => {
   return (
     <div>
-      {/* Top-bar */}
-      <Topbar />
-      {/* navbar */}
-      {/* Car Drawer */}
+      <header className="border-b border-gray-200">
+        {/* Top-bar */}
+        <Topbar />
+        {/* navbar */}
+        <Navbar />
+        {/* Cart Drawer */}
+      </header>
     </div>
   );
 };

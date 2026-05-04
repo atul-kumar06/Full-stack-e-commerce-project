@@ -7,8 +7,6 @@ const UserLayout = () => {
     <>
       {/* Header */}
       <Header />
-      {/* Navbar */}
-      <Navbar />
     </>
   );
 };
