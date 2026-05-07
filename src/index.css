@@ -15,5 +15,5 @@
 
 
 .smooth-click-animation {
-  @apply hover:text-black active:scale-95 transition-transform duration-150
+  @apply active:scale-95 transition-transform duration-150 cursor-pointer
 }
