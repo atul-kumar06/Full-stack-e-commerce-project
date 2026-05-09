@@ -24,7 +24,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="container mx-auto flex items-center justify-between py-4 px-6">
+      <nav className="container mx-auto flex items-center justify-between py-4 px-20">
         <div className="smooth-click-animation">
           <Link to="/" className="text-2xl font-medium">
             Rabbit
@@ -79,6 +79,7 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
+      
       <CartDrawer drawerOpen={drawerOpen} togglecartdrawer={togglecartdrawer} />
 
       {/* Mobile Navigation */}
