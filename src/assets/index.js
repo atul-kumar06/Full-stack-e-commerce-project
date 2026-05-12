@@ -4,3 +4,4 @@ export { default as RabbitHero } from "./rabbit-hero.webp";
 export { default as ReactIcon } from "./react.svg";
 export { default as RegisterImage } from "./register.webp";
 export { default as WomensCollection } from "./womens-collection.webp";
+export { default as featuredImage } from "./featured.webp";

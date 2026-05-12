@@ -22,16 +22,18 @@ const Navbar = () => {
   const togglecartdrawer = () => {
     setdrawerOpen(!drawerOpen);
   };
+
   return (
     <>
-      <nav className="container mx-auto flex items-center justify-between py-4 px-20">
+      <nav className="container mx-auto flex items-center justify-between py-4 px-4">
+        {/* Logo */}
         <div className="smooth-click-animation">
-          <Link to="/" className="text-2xl font-medium">
+          <Link to="/" className="text-2xl font-medium text-black">
             Rabbit
           </Link>
         </div>
 
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-5">
           <Link
             to="#"
             className="font-medium text-gray-700 hover:text-black uppercase text-sm smooth-click-animation"
@@ -57,10 +59,13 @@ const Navbar = () => {
             Bottom wear
           </Link>
         </div>
-        <div className="flex items-center justify-center space-x-3.5 ">
+
+        <div className="flex items-center justify-center space-x-4 ">
+
           <Link to="#">
             <HiOutlineUser className="h-6 w-6 text-gray-700 hover:text-black" />
           </Link>
+
           <button
             className="relative hover:text-black active:scale-95 cursor-pointer"
             onClick={togglecartdrawer}
@@ -70,16 +75,19 @@ const Navbar = () => {
               4
             </span>
           </button>
+
           <SearchBar />
+
           <button
             className="md:hidden smooth-click-animation"
             onClick={togglenavdrawer}
           >
             <HiBars3BottomRight className="h-6 w-6 text-gray-700" />
           </button>
+          
         </div>
       </nav>
-      
+
       <CartDrawer drawerOpen={drawerOpen} togglecartdrawer={togglecartdrawer} />
 
       {/* Mobile Navigation */}

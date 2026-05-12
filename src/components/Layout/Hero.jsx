@@ -14,9 +14,11 @@ const Hero = () => {
       />
 
       {/* Overlay */}
+
       <div className="absolute inset-0 bg-black/45" />
 
       {/* Content */}
+
       <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-4">
         {/* Heading */}
         <h1
@@ -31,7 +33,7 @@ const Hero = () => {
         {/* Subtext */}
         <p
           className="text-sm sm:text-base md:text-lg tracking-wide max-w-md mb-8
-                     text-white/80 hover:text-white transition-colors duration-300
+                     text-white/70 hover:text-white transition-colors duration-300
                      cursor-default"
         >
           Explore our vacation-ready outfits with fast worldwide shipping.

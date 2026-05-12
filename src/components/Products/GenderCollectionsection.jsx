@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const GenderCollectionSection = () => {
   return (
-    <section className="py-16 px-4">
-      <div className="container mx-auto flex flex-col md:flex-row gap-6">
+    <section className="py-16">
+      <div className="container mx-auto flex flex-col md:flex-row gap-6 px-4">
         {/* Women's Collection */}
         <CollectionCard
           image={WomensCollection}
@@ -33,7 +33,7 @@ const CollectionCard = ({ image, alt, label, to }) => {
       <img
         src={image}
         alt={alt}
-        className="w-full h-125 md:h-150 object-cover
+        className="w-full h-auto md:h-150 object-cover
                    transition-transform duration-700 ease-in-out
                    group-hover:scale-110"
       />

@@ -62,34 +62,39 @@ const newArrivals = [
     ],
   },
   {
-    _id: "7",
+    _id: "8",
     name: "Floral Blouse",
     price: 65,
     images: [
-      { url: "https://picsum.photos/seed/7/500/500", altText: "Floral Blouse" },
+      { url: "https://picsum.photos/seed/8/500/500", altText: "Floral Blouse" },
     ],
   },
   {
-    _id: "7",
+    _id: "9",
     name: "Floral Blouse",
     price: 65,
     images: [
-      { url: "https://picsum.photos/seed/7/500/500", altText: "Floral Blouse" },
+      { url: "https://picsum.photos/seed/9/500/500", altText: "Floral Blouse" },
     ],
   },
   {
-    _id: "7",
+    _id: "10",
     name: "Floral Blouse",
     price: 65,
     images: [
-      { url: "https://picsum.photos/seed/7/500/500", altText: "Floral Blouse" },
+      {
+        url: "https://picsum.photos/seed/10/500/500",
+        altText: "Floral Blouse",
+      },
     ],
   },
 ];
 
 const ProductCard = ({ product, index }) => {
   const [visible, setVisible] = useState(false);
+
   const cardRef = useRef(null);
+  console.log(cardRef);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -119,7 +124,7 @@ const ProductCard = ({ product, index }) => {
           alt={product.images[0]?.altText || product.name}
           className="w-full h-64 object-cover
                      transition-transform duration-500 ease-in-out
-                     group-hover:scale-105"
+                     group-hover:scale-110"
         />
       </div>
 
@@ -161,14 +166,14 @@ const NewArrival = () => {
           <button
             onClick={() => scroll("left")}
             className="p-2 rounded border bg-white text-black
-                       hover:bg-gray-100 transition-colors duration-200"
+                       hover:bg-gray-100 transition-colors duration-200 smooth-click-animation"
           >
             <FiChevronLeft className="text-2xl" />
           </button>
           <button
             onClick={() => scroll("right")}
             className="p-2 rounded border bg-white text-black
-                       hover:bg-gray-100 transition-colors duration-200"
+                       hover:bg-gray-100 transition-colors duration-200 smooth-click-animation"
           >
             <FiChevronRight className="text-2xl" />
           </button>
