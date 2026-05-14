@@ -6,8 +6,11 @@ import ProductGrid from "../components/Products/ProductGrid";
 
 const CollectionPages = () => {
   const [Products, setProducts] = useState([]);
-  const sidebarRef = useRef(null);
-  const buttonRef = useRef(null);
+
+  const sidebarRef = useRef(null); // Ref to my side button
+
+  const buttonRef = useRef(null); // Ref to button
+
   const [isSidebarOpen, setisSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -85,7 +88,7 @@ const CollectionPages = () => {
           price: 120,
           images: [
             {
-              url: "https://picsum.photos/500/500?random=15",
+              url: "https://picsum.photos/500/500?random=16",
               altText: "Stylish Jacket",
             },
           ],
@@ -96,7 +99,7 @@ const CollectionPages = () => {
           price: 120,
           images: [
             {
-              url: "https://picsum.photos/500/500?random=15",
+              url: "https://picsum.photos/500/500?random=17",
               altText: "Stylish Jacket",
             },
           ],
@@ -107,7 +110,7 @@ const CollectionPages = () => {
           price: 120,
           images: [
             {
-              url: "https://picsum.photos/500/500?random=15",
+              url: "https://picsum.photos/500/500?random=18",
               altText: "Stylish Jacket",
             },
           ],
@@ -118,7 +121,7 @@ const CollectionPages = () => {
           price: 120,
           images: [
             {
-              url: "https://picsum.photos/500/500?random=15",
+              url: "https://picsum.photos/500/500?random=19",
               altText: "Stylish Jacket",
             },
           ],
@@ -129,7 +132,7 @@ const CollectionPages = () => {
           price: 120,
           images: [
             {
-              url: "https://picsum.photos/500/500?random=15",
+              url: "https://picsum.photos/500/500?random=20",
               altText: "Stylish Jacket",
             },
           ],
@@ -140,7 +143,7 @@ const CollectionPages = () => {
           price: 120,
           images: [
             {
-              url: "https://picsum.photos/500/500?random=15",
+              url: "https://picsum.photos/500/500?random=21",
               altText: "Stylish Jacket",
             },
           ],
@@ -150,6 +153,8 @@ const CollectionPages = () => {
     }, 1000);
   }, []);
 
+
+  
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Mobile Filter Button */}
@@ -167,7 +172,7 @@ const CollectionPages = () => {
         ref={sidebarRef}
         className={`${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } fixed inset-y-0 z-50 left-0 w-64 bg-white shadow-lg transition-transform duration-300 lg:translate-x-0 lg:static lg:shadow-none`}
+        } fixed inset-y-0 z-20 left-0 w-64 bg-white shadow-lg transition-transform duration-300 lg:translate-x-0 lg:static lg:shadow-none`}
       >
         <FilterSidebar />
       </div>

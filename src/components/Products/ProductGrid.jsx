@@ -6,7 +6,7 @@ const ProductGrid = ({ products }) => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {products.map((product, index) => (
         <Link to={`/product/${product._id}`} key={index} className="block">
-          <div className="bg-white p-4 rounded shadow hover:shadow-lg transition-shadow duration-300">
+          <div className="bg-white p-4 rounded  transition-shadow duration-300">
             <div className="w-full h-auto mb-4">
               <img
                 src={product.images[0].url}
