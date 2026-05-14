@@ -35,7 +35,7 @@ const Navbar = () => {
 
         <div className="hidden md:flex space-x-5">
           <Link
-            to="#"
+            to="/collections/all"
             className="font-medium text-gray-700 hover:text-black uppercase text-sm smooth-click-animation"
           >
             Men
@@ -61,7 +61,6 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center justify-center space-x-4 ">
-
           <Link to="#">
             <HiOutlineUser className="h-6 w-6 text-gray-700 hover:text-black" />
           </Link>
@@ -84,7 +83,6 @@ const Navbar = () => {
           >
             <HiBars3BottomRight className="h-6 w-6 text-gray-700" />
           </button>
-          
         </div>
       </nav>
 

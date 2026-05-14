@@ -94,8 +94,6 @@ const ProductCard = ({ product, index }) => {
   const [visible, setVisible] = useState(false);
 
   const cardRef = useRef(null);
-  console.log(cardRef);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

@@ -1,35 +1,48 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { LoginImage } from "../assets";
+import { RegisterImage } from "../assets";
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("User Logged In:", { email, password });
+    console.log("User Registered:", { name, email, password });
   };
 
   return (
     <div className="flex">
+      {/* Image Side — left on register (flipped from login) */}
+
+      <div
+        className="hidden md:block w-1/2  h-140 overflow-hidden"
+        style={{ animation: "fadeIn 0.6s ease both", animationDelay: "0.1s" }}
+      >
+        <img
+          src={RegisterImage}
+          alt="Register"
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+        />
+      </div>
+
       {/* Form Side */}
       <div className="w-full md:w-1/2 flex justify-center items-center p-6 bg-white">
         <form
-          className="w-full max-w-md animate-fade-in-up"
+          className="w-full max-w-md"
           style={{ animation: "fadeInUp 0.5s ease both" }}
           onSubmit={handleSubmit}
         >
           {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <span
-              className="text-2xl font-black tracking-tight"
-              style={{
-                animation: "fadeInUp 0.4s ease both",
-                animationDelay: "0.05s",
-              }}
-            >
-              Rabbit
-            </span>
+          <div
+            className="flex justify-center mb-8"
+            style={{
+              animation: "fadeInUp 0.4s ease both",
+              animationDelay: "0.05s",
+            }}
+          >
+            <span className="text-2xl font-black tracking-tight">Rabbit</span>
           </div>
 
           {/* Heading */}
@@ -40,11 +53,31 @@ const Login = () => {
             }}
           >
             <h2 className="text-3xl font-bold text-center mb-2">
-              Hey There! 👋
+              Create Account! 🚀
             </h2>
             <p className="text-center text-gray-400 text-sm mb-8">
-              Enter your email and password to login
+              Fill in the details below to get started
             </p>
+          </div>
+
+          {/* Name */}
+          <div
+            className="mb-4"
+            style={{
+              animation: "fadeInUp 0.4s ease both",
+              animationDelay: "0.15s",
+            }}
+          >
+            <label className="block text-xs font-semibold text-gray-500 mb-1.5 ml-1 uppercase tracking-wide">
+              Name
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200 placeholder:text-gray-300"
+              placeholder="John Doe"
+            />
           </div>
 
           {/* Email */}
@@ -52,7 +85,7 @@ const Login = () => {
             className="mb-4"
             style={{
               animation: "fadeInUp 0.4s ease both",
-              animationDelay: "0.15s",
+              animationDelay: "0.2s",
             }}
           >
             <label className="block text-xs font-semibold text-gray-500 mb-1.5 ml-1 uppercase tracking-wide">
@@ -72,20 +105,12 @@ const Login = () => {
             className="mb-6"
             style={{
               animation: "fadeInUp 0.4s ease both",
-              animationDelay: "0.2s",
+              animationDelay: "0.25s",
             }}
           >
-            <div className="flex justify-between items-center mb-1.5 ml-1">
-              <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                Password
-              </label>
-              <a
-                href="#"
-                className="text-xs text-gray-400 hover:text-black transition-colors duration-150"
-              >
-                Forgot password?
-              </a>
-            </div>
+            <label className="block text-xs font-semibold text-gray-500 mb-1.5 ml-1 uppercase tracking-wide">
+              Password
+            </label>
             <input
               type="password"
               value={password}
@@ -99,46 +124,34 @@ const Login = () => {
           <div
             style={{
               animation: "fadeInUp 0.4s ease both",
-              animationDelay: "0.25s",
+              animationDelay: "0.3s",
             }}
           >
             <button
               type="submit"
               className="w-full bg-black text-white py-3 rounded-xl text-sm font-semibold hover:bg-gray-800 active:scale-[0.98] transition-all duration-200"
             >
-              Login
+              Sign Up
             </button>
           </div>
 
-          {/* Register Link */}
+          {/* Login Link */}
           <p
             className="text-center mt-6 text-sm text-gray-400"
             style={{
               animation: "fadeInUp 0.4s ease both",
-              animationDelay: "0.3s",
+              animationDelay: "0.35s",
             }}
           >
-            Don't have an account?{" "}
+            Already have an account?{" "}
             <Link
-              to="/register"
+              to="/login"
               className="text-black font-semibold hover:underline"
             >
-              Register
+              Login
             </Link>
           </p>
         </form>
-      </div>
-
-      {/* Image Side */}
-      <div
-        className="hidden md:block w-1/2 h-140 overflow-hidden"
-        style={{ animation: "fadeIn 0.6s ease both", animationDelay: "0.1s" }}
-      >
-        <img
-          src={LoginImage}
-          alt="Login"
-          className="w-full h-full object-cover scale-100 hover:scale-105 transition-transform duration-700 ease-in-out"
-        />
       </div>
 
       {/* Keyframes */}
@@ -162,4 +175,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
