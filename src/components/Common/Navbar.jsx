@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="container mx-auto flex items-center justify-between py-4 px-4">
+      <nav className="container mx-auto flex items-center justify-between py-2 px-4">
         {/* Logo */}
         <div className="smooth-click-animation">
           <Link to="/" className="text-2xl font-medium text-black">
@@ -101,7 +101,7 @@ const Navbar = () => {
           <h2 className="text-xl font-semibold mb-4">Menu</h2>
           <nav className="space-y-3">
             <Link
-              to="#"
+              to="/collections/all"
               onClick={togglenavdrawer}
               className="block text-gray-600 hover:text-black"
             >
