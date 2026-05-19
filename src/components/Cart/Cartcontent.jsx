@@ -63,7 +63,7 @@ const Cartcontent = () => {
             </div>
           </div>
           <div className="flex flex-col ">
-            <p>${product.price.toLocaleString()}</p>
+            <p>₹{product.price.toLocaleString()}</p>
             <button>
               <RiDeleteBin3Line className="h-6 w-6 text-red-600 smooth-click-animation " />
             </button>

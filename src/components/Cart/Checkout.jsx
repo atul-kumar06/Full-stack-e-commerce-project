@@ -192,7 +192,7 @@ const Checkout = () => {
               // ✅ Show this button first
               <button
                 type="submit"
-                className="w-full bg-black text-white py-3 rounded"
+                className="w-full bg-black text-white py-3 rounded smooth-click-animation"
               >
                 Continue to Payment
               </button>
@@ -200,7 +200,46 @@ const Checkout = () => {
           </div>
         </form>
       </div>
-      <div>Gii</div>
+      <div className="bg-gray-50 p-6 rounded-lg">
+        <h3 className="text-lg mb-4 font-semibold text-center">
+          Order Summary
+        </h3>
+
+        <div className="border-t py-4 mb-4">
+          {cart.products.map((product, index) => (
+            <div
+              key={index}
+              className="flex items-start justify-between py-2 border-b"
+            >
+              <div className="flex justify-between">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-20 h-24 mr-4"
+                />
+                <div>
+                  <h3 className="text-md font-semibold">{product.name}</h3>
+                  <p className="text-gray-500">{product.color}</p>
+                </div>
+              </div>
+              <p className="text-xl">₹ {product.price?.toLocaleString()}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-between items-center text-lg mb-4">
+          <p className="font-semibold">Subtotal</p>
+          <p>₹{cart.totalprice?.toLocaleString()}</p>
+        </div>
+        <div className="flex justify-between items-center text-lg mb-4">
+          <p className="font-semibold">Shipping</p>
+          <p className="font-semibold">Free</p>
+        </div>
+        <div className="flex justify-between items-center text-lg">
+          <p className="font-semibold">Total</p>
+          <div>₹{cart.totalprice?.toLocaleString()}</div>
+        </div>
+      </div>
     </div>
   );
 };

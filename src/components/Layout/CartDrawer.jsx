@@ -2,8 +2,15 @@ import React from "react";
 import { IoMdClose } from "react-icons/io";
 import { HiShoppingBag } from "react-icons/hi";
 import Cartcontent from "../Cart/Cartcontent";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 const CartDrawer = ({ drawerOpen, togglecartdrawer }) => {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    togglecartdrawer();
+    navigate("/checkout");
+  };
   return (
     <>
       {/* Backdrop */}
@@ -46,6 +53,7 @@ const CartDrawer = ({ drawerOpen, togglecartdrawer }) => {
             className="w-full bg-black text-white py-3 rounded-lg font-semibold
                        hover:bg-gray-800 active:scale-95
                        transition-all duration-200"
+            onClick={handleCheckout}
           >
             Checkout
           </button>
