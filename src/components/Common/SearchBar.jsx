@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { HiMagnifyingGlass, HiMiniXMark } from "react-icons/hi2";
 
 const SearchBar = () => {
-  
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false); // 👈 new
   const [SearchTerm, setSearchTerm] = useState("");

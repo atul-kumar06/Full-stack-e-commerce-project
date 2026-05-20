@@ -4,7 +4,7 @@
 const RazorpayButton = ({ amount, shippingAddress, onSuccess, onError }) => {
   const handlePayment = () => {
     const options = {
-      key: "rzp_test_SqnZXhRo2p4so7", // paste your key here
+      key: import.meta.env.VITE_RAZOR_PAY_ID, // paste your key here
       amount: amount * 100, // convert to paise (₹195 → 19500)
       currency: "INR",
       name: "Your Store",

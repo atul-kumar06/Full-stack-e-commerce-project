@@ -59,9 +59,15 @@ const Navbar = () => {
             Bottom wear
           </Link>
         </div>
-
+        {/* Right Icons */}
         <div className="flex items-center justify-center space-x-4 ">
-          <Link to="#">
+          <Link
+            to="/admin"
+            className="block bg-black px-2 rounded text-sm text-white"
+          >
+            Admin
+          </Link>
+          <Link to="/profile">
             <HiOutlineUser className="h-6 w-6 text-gray-700 hover:text-black" />
           </Link>
 
