@@ -30,6 +30,7 @@ const UserManagement = () => {
   };
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
 
     // Prevent adding a duplicate email to protect our delete reference key

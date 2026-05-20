@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion"; // Run: npm install framer-motion
+import { useNavigate } from "react-router-dom";
 
 const MyOrdersPage = () => {
+  const navigate = useNavigate();
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // Trigger the page container ease-in entry transition
+    setIsMounted(true);
+
     // Simulate fetching orders from an API
     const timer = setTimeout(() => {
       const mockOrders = [
@@ -62,12 +67,15 @@ const MyOrdersPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleRowClick = (orderID) => {
+    navigate(`/order/${orderID}`);
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="max-w-7xl mx-auto p-4 sm:p-6"
+    <div
+      className={`max-w-7xl mx-auto p-4 sm:p-6 transform transition-all duration-500 ease-out ${
+        isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}
     >
       <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800">
         My Orders
@@ -88,14 +96,42 @@ const MyOrdersPage = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {orders.length > 0 ? (
-                orders.map((order, index) => (
-                  <motion.tr
+              {isLoading ? (
+                /* Skeleton Loading State via Pure Tailwind */
+                Array.from({ length: 3 }).map((_, idx) => (
+                  <tr key={idx} className="animate-pulse">
+                    <td className="py-4 px-4">
+                      <div className="w-12 h-12 bg-gray-200 rounded-lg"></div>
+                    </td>
+                    <td className="py-4 px-4">
+                      <div className="h-4 bg-gray-200 rounded w-24"></div>
+                    </td>
+                    <td className="py-4 px-4">
+                      <div className="h-4 bg-gray-200 rounded w-20 mb-2"></div>
+                      <div className="h-3 bg-gray-100 rounded w-12"></div>
+                    </td>
+                    <td className="py-4 px-4">
+                      <div className="h-4 bg-gray-200 rounded w-28"></div>
+                    </td>
+                    <td className="py-4 px-4">
+                      <div className="h-4 bg-gray-200 rounded w-12"></div>
+                    </td>
+                    <td className="py-4 px-4">
+                      <div className="h-4 bg-gray-200 rounded w-16"></div>
+                    </td>
+                    <td className="py-4 px-4">
+                      <div className="h-6 bg-gray-200 rounded-full w-16"></div>
+                    </td>
+                  </tr>
+                ))
+              ) : orders.length > 0 ? (
+                orders.map((order) => (
+                  <tr
                     key={order._id}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="hover:bg-blue-50/50 transition-colors duration-200 cursor-pointer"
+                    className="hover:bg-blue-50/50 transition-colors duration-200 cursor-pointer opacity-100 translate-x-0"
+                    onClick={() => {
+                      handleRowClick(order._id);
+                    }}
                   >
                     <td className="py-4 px-4">
                       <img
@@ -140,7 +176,7 @@ const MyOrdersPage = () => {
                         {order.isPaid ? "Paid" : "Pending"}
                       </span>
                     </td>
-                  </motion.tr>
+                  </tr>
                 ))
               ) : (
                 <tr>
@@ -148,9 +184,7 @@ const MyOrdersPage = () => {
                     colSpan={7}
                     className="py-20 text-center text-gray-400 italic"
                   >
-                    {isLoading
-                      ? "Loading your orders..."
-                      : "You have no orders yet."}
+                    You have no orders yet.
                   </td>
                 </tr>
               )}
@@ -158,7 +192,7 @@ const MyOrdersPage = () => {
           </table>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
